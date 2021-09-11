@@ -26,8 +26,6 @@ public class BreedService {
         return resultStringBuilder.toString();
     }
 
-    //  git remote set-url origin https://yoga1290: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@github.com/yoga1290/test-spring.git
-
     public Result list() throws Exception {
         InputStream inp = new FileInputStream(resourceFile.getFile());
         return new Result(readFromInputStream(inp));

@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class BreedController {
 
     @Autowired
-    BreedService breedService;
+    private BreedService breedService;
+
 //    @GetMapping("/list/all")
     @GetMapping("/")
-
     public Result list() throws Exception {
         System.out.println("HELLLLO");
         return breedService.list();

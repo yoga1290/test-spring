@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.demo.services.BreedService;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.Matchers.containsString;
@@ -32,9 +33,12 @@ public class BreedControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private BreedService breedService;
+
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("message")));
+                .andExpect(content().string(containsString( breedService.list().getMessage() )));
     }
 }
