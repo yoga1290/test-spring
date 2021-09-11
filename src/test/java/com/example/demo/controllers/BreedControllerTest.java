@@ -38,7 +38,8 @@ public class BreedControllerTest {
 
     @Test
     public void shouldReturnDefaultMessage() throws Exception {
+        String expectedJSONData = "{ \"message\": " + breedService.list().getMessage() + ", \"status\":\"success\"}";
         this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString( breedService.list().getMessage() )));
+                .andExpect(content().json(expectedJSONData));
     }
 }
